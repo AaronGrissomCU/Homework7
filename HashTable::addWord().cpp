@@ -22,7 +22,28 @@ void HashTable::addWord(std::string word)
         
         else
         {
-            wordItem* locator = hashTable[hashNum];
+            wordPtr = hashTable[hashNum];
+           
+            if (wordPtr == nullptr)
+            {
+                wordPtr = new wordItem;
+                hashTable[hashNum] = wordPtr;
+                wordPtr->word = word;
+                wordPtr->count = 1;
+                wordPtr->next = nullptr;
+            }
+            else
+            {
+                while (wordPtr->next != nullptr)
+                {
+                   wordPtr = wordPtr->next;
+                }
+                wordPtr->next = new wordItem;
+                wordPtr = wordPtr->next;
+                wordPtr->word = word;
+                wordPtr->count = 1;
+                wordPtr->next = nullptr;
+            }
         }
     }
 }
