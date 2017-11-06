@@ -15,4 +15,4 @@ int HashTable::getTotalNumberNonStopWords()
     }
     
     return numNonStopWords;
-}
+} 
